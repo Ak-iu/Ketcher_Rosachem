@@ -22,19 +22,19 @@ import {
 } from '../ToolbarGroupItem'
 import { ToolbarItem, ToolbarItemVariant } from '../toolbar.types'
 import {
-  arrowsOptions,
+  // arrowsOptions,
   bondCommon,
   bondQuery,
   bondSpecial,
   bondStereo,
-  mappingOptions,
-  rGroupOptions,
+  // mappingOptions,
+  // rGroupOptions,
   selectOptions,
-  shapeOptions,
+  // shapeOptions,
   transformOptions
 } from './leftToolbarOptions'
 
-import { ArrowScroll } from '../ArrowScroll'
+// import { ArrowScroll } from '../ArrowScroll'
 import { Bond } from './Bond'
 import { RGroup } from './RGroup'
 import { Shape } from './Shape'
@@ -57,9 +57,9 @@ const LeftToolbar = (props: Props) => {
   const { className, ...rest } = props
   const { ref, height } = useResizeObserver<HTMLDivElement>()
   const scrollRef = useRef() as MutableRefObject<HTMLDivElement>
-  const [startRef, startInView] = useInView({ threshold: 0.8 })
-  const [endRef, endInView] = useInView({ threshold: 0.8 })
-  const sizeRef = useRef() as MutableRefObject<HTMLDivElement>
+  const startRef = useInView({ threshold: 0.8 })[0]
+  // const [endRef, endInView] = useInView({ threshold: 0.8 })
+  // const sizeRef = useRef() as MutableRefObject<HTMLDivElement>
 
   type ItemProps = {
     id: ToolbarItemVariant
@@ -68,13 +68,13 @@ const LeftToolbar = (props: Props) => {
   const Item = ({ id, options }: ItemProps) =>
     ToolbarGroupItem({ id, options, ...rest })
 
-  const scrollUp = () => {
-    scrollRef.current.scrollTop -= sizeRef.current.offsetHeight
-  }
+  // const scrollUp = () => {
+  //   scrollRef.current.scrollTop -= sizeRef.current.offsetHeight
+  // }
 
-  const scrollDown = () => {
-    scrollRef.current.scrollTop += sizeRef.current.offsetHeight
-  }
+  // const scrollDown = () => {
+  //   scrollRef.current.scrollTop += sizeRef.current.offsetHeight
+  // }
 
   const status = rest.status
 
@@ -161,44 +161,44 @@ const LeftToolbar = (props: Props) => {
           ]}
         />
 
-        <Group
-          className={classes.groupItem}
-          items={[{ id: 'sgroup' }, { id: 'sgroup-data' }]}
-        />
+        {/* <Group */}
+        {/*   className={classes.groupItem} */}
+        {/*   items={[{ id: 'sgroup' }, { id: 'sgroup-data' }]} */}
+        {/* /> */}
 
-        <Group
-          className={classes.groupItem}
-          items={[
-            { id: 'reaction-plus' },
-            { id: 'arrows', options: arrowsOptions },
-            {
-              id: 'reaction-mapping-tools',
-              options: mappingOptions
-            }
-          ]}
-        />
-        <div className={classes.listener} ref={sizeRef}>
-          <Group
-            className={classes.groupItem}
-            items={[{ id: 'rgroup', options: rGroupOptions }]}
-          />
-        </div>
+        {/* <Group */}
+        {/*   className={classes.groupItem} */}
+        {/*   items={[ */}
+        {/*     { id: 'reaction-plus' }, */}
+        {/*     { id: 'arrows', options: arrowsOptions }, */}
+        {/*     { */}
+        {/*       id: 'reaction-mapping-tools', */}
+        {/*       options: mappingOptions */}
+        {/*     } */}
+        {/*   ]} */}
+        {/* /> */}
+        {/* <div className={classes.listener} ref={sizeRef}> */}
+        {/*   <Group */}
+        {/*     className={classes.groupItem} */}
+        {/*     items={[{ id: 'rgroup', options: rGroupOptions }]} */}
+        {/*   /> */}
+        {/* </div> */}
 
-        <Group
-          className={classes.groupItem}
-          items={[{ id: 'shapes', options: shapeOptions }]}
-        />
+        {/* <Group */}
+        {/*   className={classes.groupItem} */}
+        {/*   items={[{ id: 'shapes', options: shapeOptions }]} */}
+        {/* /> */}
 
-        <div ref={endRef}>
-          <Group className={classes.groupItem} items={[{ id: 'text' }]} />
-        </div>
+        {/* <div ref={endRef}> */}
+        {/*   <Group className={classes.groupItem} items={[{ id: 'text' }]} /> */}
+        {/* </div> */}
       </div>
-      <ArrowScroll
-        startInView={startInView}
-        endInView={endInView}
-        scrollUp={scrollUp}
-        scrollDown={scrollDown}
-      />
+      {/* <ArrowScroll */}
+      {/*   startInView={startInView} */}
+      {/*   endInView={endInView} */}
+      {/*   scrollUp={scrollUp} */}
+      {/*   scrollDown={scrollDown} */}
+      {/* /> */}
     </div>
   )
 }

@@ -132,9 +132,9 @@ export const TopToolbar = ({
   // onStereo,
   // onMiew,
   onFullscreen,
-  onAbout,
-  onHelp
-}: PanelProps) => {
+  onAbout
+}: // onHelp
+PanelProps) => {
   // const { ref: resizeRef, width = 50 } = useResizeObserver<HTMLDivElement>()
   const { ref: resizeRef } = useResizeObserver<HTMLDivElement>()
 
@@ -195,7 +195,7 @@ export const TopToolbar = ({
         }}
         onSettingsOpen={onSettingsOpen}
         onFullscreen={onFullscreen}
-        onHelp={onHelp}
+        // onHelp={onHelp}
         onAboutOpen={onAbout}
         disabledButtons={disabledButtons}
         hiddenButtons={hiddenButtons}

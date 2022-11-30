@@ -14,6 +14,7 @@
  * limitations under the License.
  ***************************************************************************/
 
+import { SearchForm } from '../views/toolbars/SearchForm/SearchForm'
 import {
   BottomToolbarContainer,
   LeftToolbarContainer,
@@ -70,9 +71,10 @@ const App = (props: Props) => {
         <LeftToolbarContainer className={classes.left} />
         <BottomToolbarContainer className={classes.bottom} />
         <RightToolbarContainer className={classes.right} />
-
         <AppClipArea />
         <AppModalContainer />
+
+        <SearchForm />
       </div>
     </ThemeProvider>
   )
