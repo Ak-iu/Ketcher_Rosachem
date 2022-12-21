@@ -1,12 +1,20 @@
 import React from 'react'
-import './SearchForm.css'
 
-class SearchForm extends React.Component {
-  search = { value: 'exact_search' }
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Props = {}
+type State = { value: string }
+class SearchForm extends React.Component<Props, State> {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
   handleSubmit(event) {
-    alert('Search value: ' + this.search.value)
-    console.log('form submitted ✅')
+    alert("l'inchiKey est " + 0)
     event.preventDefault()
   }
 
@@ -14,9 +22,21 @@ class SearchForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <fieldset>
-          <input type="radio" id="exact_search" name="exact_search" checked />
+          <input
+            type="radio"
+            id="exact_search"
+            name="search"
+            value="exact_search"
+            checked
+          />
           <label htmlFor="exact_search">Recherche exacte</label>
-          <input type="radio" id="approx_search" name="approx_search" />
+
+          <input
+            type="radio"
+            id="approx_search"
+            name="search"
+            value="approx_search"
+          />
           <label htmlFor="approx_search">Recherche approchée</label>
         </fieldset>
 

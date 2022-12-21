@@ -71,11 +71,12 @@ const App = (props: Props) => {
         <LeftToolbarContainer className={classes.left} />
         <BottomToolbarContainer className={classes.bottom} />
         <RightToolbarContainer className={classes.right} />
+
         <AppClipArea />
         <AppModalContainer />
-
-        <SearchForm />
       </div>
+
+      <SearchForm />
     </ThemeProvider>
   )
 }
