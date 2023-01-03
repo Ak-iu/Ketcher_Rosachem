@@ -1,9 +1,6 @@
-import React from 'react'
+import { Component } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Props = {}
-type State = { value: string }
-class SearchForm extends React.Component<Props, State> {
+class SearchForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
