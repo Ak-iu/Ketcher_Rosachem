@@ -14,7 +14,6 @@
  * limitations under the License.
  ***************************************************************************/
 
-import { SearchForm } from '../views/toolbars/SearchForm/SearchForm'
 import {
   BottomToolbarContainer,
   LeftToolbarContainer,
@@ -31,6 +30,8 @@ import Editor from '../views/Editor'
 import classes from './App.module.less'
 import { initFGTemplates } from '../state/functionalGroups'
 import { useSettingsContext, useSubscriptionOnEvents } from '../../../hooks'
+
+import SearchContainer from '../views/Search/Search.container'
 
 interface AppCallProps {
   checkServer: () => void
@@ -74,9 +75,9 @@ const App = (props: Props) => {
 
         <AppClipArea />
         <AppModalContainer />
-      </div>
 
-      <SearchForm />
+        <SearchContainer />
+      </div>
     </ThemeProvider>
   )
 }
