@@ -1,40 +1,10 @@
 import { Component } from 'react'
-import { connect } from 'react-redux'
-import { check } from '../../state/server'
-import { saveUserTmpl } from '../../state/templates'
-import { updateFormState } from '../../state/modal/form'
-import {
-  FormatterFactory,
-  getPropertiesByFormat,
-  getPropertiesByImgFormat,
-  KetSerializer
-} from 'ketcher-core'
+import { FormatterFactory, KetSerializer } from 'ketcher-core'
 import './SearchForm.css'
 
 class SearchForm extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      disableControls: true,
-      imageFormat: 'svg',
-      tabIndex: 0,
-      isLoading: true
-    }
-    this.isRxn = false
-    const formats = [this.isRxn ? 'rxn' : 'mol', 'smiles', 'ket']
-    if (this.props.server)
-      formats.push(
-        this.isRxn ? 'rxnV3000' : 'molV3000',
-        'smilesExt',
-        'smarts',
-        'inChI',
-        'inChIAuxInfo',
-        'cml',
-        'svg',
-        'png',
-        'cdxml'
-      )
-
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -104,6 +74,12 @@ class SearchForm extends Component {
     // TODO not working
     const { struct } = this.props
     const ketSerialize = new KetSerializer()
+
+    try {
+      const struct = this.props.editor
+    } catch (e) {
+      alert(e)
+    }
 
     if (!struct) alert('struct null, composant non connecté')
     else {
