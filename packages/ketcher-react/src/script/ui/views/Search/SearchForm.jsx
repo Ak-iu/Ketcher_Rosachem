@@ -72,20 +72,12 @@ class SearchForm extends Component {
 
   handleSubmit(event) {
     // TODO not working
-    const { struct } = this.props
     const ketSerialize = new KetSerializer()
+    const struct = this.props.editor.struct()
+    const structStr = ketSerialize.serialize(struct)
 
-    try {
-      const struct = this.props.editor
-    } catch (e) {
-      alert(e)
-    }
+    alert("l'inchiKey est " + structStr)
 
-    if (!struct) alert('struct null, composant non connecté')
-    else {
-      const structStr = ketSerialize.serialize(struct)
-      alert("l'inchiKey est " + structStr)
-    }
     event.preventDefault()
   }
 

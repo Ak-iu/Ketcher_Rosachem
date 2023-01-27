@@ -3,7 +3,6 @@ import { SearchForm } from './SearchForm'
 
 const mapStateToProps = (state) => ({
   server: state.options.app.server ? state.server : null,
-  // struct: state.editor.struct(),
   editor: state.editor,
   // options: state.options.getServerSettings(),
   // formState: state.modal.form,
