@@ -403,7 +403,6 @@ class SaveDialog extends Component {
 
 const mapStateToProps = (state) => ({
   server: state.options.app.server ? state.server : null,
-  editor: state.editor,
   struct: state.editor.struct(),
   options: state.options.getServerSettings(),
   formState: state.modal.form,
