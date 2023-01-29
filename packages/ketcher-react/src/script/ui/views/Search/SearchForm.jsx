@@ -38,10 +38,10 @@ export class SearchForm extends Component {
     this.state.precision = parseInt(event.target.precision_select.value)
 
     if (this.state.inchi) {
-      alert("l'inchiKey est " + this.state.inchi)
+      console.log(this.state.inchi)
       RosaService.searchByInchi(this.state.inchi, this.state.precision)
     } else {
-      alert('str null')
+      console.log('inchi null')
     }
     event.preventDefault()
   }
