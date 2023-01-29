@@ -40,5 +40,8 @@
   "resolutions": {
     "react-error-overlay": "6.0.9"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "dependencies": {
+    "axios": "^1.2.6"
+  }
 }
