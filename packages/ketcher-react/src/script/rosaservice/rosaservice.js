@@ -1,38 +1,38 @@
 export default class RosaService {
   static searchByInchi = async (inchi, similitude) => {
+    var response
     if (similitude === 1) {
       try {
-        await fetch('https://www.pcorp.games:8443/rosapi/search/exact', {
+        response = fetch('https://www.pcorp.games:8443/rosapi/search/exact', {
           method: 'POST',
           body: JSON.stringify({
             inchi: inchi
           }),
           headers: {
-            'Content-type': 'application/json; charset=UTF-8'
+            'Content-type': 'application/json'
           }
         })
-          .then((response) => response.json())
-          .then((json) => console.log(json))
       } catch (e) {
-        console.log(e)
+        response = e
       }
     } else {
       try {
-        fetch('https://www.pcorp.games:8443/rosapi/search/similitude', {
-          method: 'POST',
-          body: JSON.stringify({
-            inchi: inchi,
-            similitude: similitude
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8'
+        response = fetch(
+          'https://www.pcorp.games:8443/rosapi/search/similitude',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              inchi: inchi
+            }),
+            headers: {
+              'Content-type': 'application/json'
+            }
           }
-        })
-          .then((response) => response.json())
-          .then((json) => console.log(json))
+        )
       } catch (e) {
-        console.log(e)
+        response = e
       }
     }
+    return response
   }
 }

@@ -75,9 +75,8 @@ const App = (props: Props) => {
 
         <AppClipArea />
         <AppModalContainer />
-
-        <SearchContainer />
       </div>
+      <SearchContainer />
     </ThemeProvider>
   )
 }

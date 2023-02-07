@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
-body {
+.form-container {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;}
-* {box-sizing: border-box;}
+    width: 100%;
+}
 
-fieldset{
+* {
+    box-sizing: border-box;
+}
+
+fieldset {
     display: inline;
     border: none;
     width: 400px;
@@ -13,49 +17,99 @@ fieldset{
 
 form {
     display: flex;
+    justify-content: space-around;
     flex-flow: row wrap;
     align-items: center;
-    justify-content:left;
     padding: 20px;
-    width: 800px;
+    width: 100%;
 }
 
 form label {
     margin: 5px 10px 5px 0;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-form select{
+form select {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 15px;
 }
 
-form input {
+
+.search-button-container {
+    display: flex;
+
+
+}
+
+.search-btn {
     font-family: 'Inter', sans-serif;
     font-size: 15px;
     vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    justify-content:right;
-    margin-left:auto
-}
-
-form button {
+    margin: 5px 10px 5px 10px;
+    justify-content: right;
     padding: 10px 20px;
     background-color: dodgerblue;
     border: 1px solid #ddd;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
 }
 
-form button:hover {
+.search-btn:hover {
     background-color: royalblue;
+    color: white;
+}
+
+
+.card_container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    gap: 30px
+}
+
+.col1 {
+    width: 300px;
+    height: 190px;
+}
+
+.card-img {
+    width: 100%;
+    border-radius: calc(0.25rem - 1px);
+}
+
+.btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    padding: 6px 12px 6px 12px;
+    color: rgb(232, 230, 227);
+    background-color: rgb(5, 95, 129);
+    border-color: rgb(7, 146, 198);
+    border-radius: 0.25rem;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+
+.btn:hover {
+    background-color: rgb(95, 151, 255);
+}
+
+.no-result {
+    text-align: center;
 }
 
 @media (max-width: 800px) {
-    form input {
+    form .search-btn {
         margin: 10px 0;
     }
 
