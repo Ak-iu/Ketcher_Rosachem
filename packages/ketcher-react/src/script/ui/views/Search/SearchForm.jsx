@@ -134,7 +134,11 @@ export class SearchForm extends Component {
                         'https://www.rosachem.com/fiche-produit/' +
                         id +
                         '/' +
-                        label.replace(' ', '-')
+                        label.replace("-(+)-"," ")
+                              .replace("-(-)-"," ")
+                              .replace(/\s+/g, " ")
+                              .replace(' ','-')
+
                       }
                       target="_blank"
                     >
