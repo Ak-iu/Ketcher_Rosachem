@@ -22,7 +22,8 @@ export default class RosaService {
           {
             method: 'POST',
             body: JSON.stringify({
-              inchi: inchi
+              inchi: inchi,
+              similitude:similitude
             }),
             headers: {
               'Content-type': 'application/json'
