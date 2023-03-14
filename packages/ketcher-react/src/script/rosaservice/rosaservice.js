@@ -1,9 +1,11 @@
 export default class RosaService {
   static searchByInchi = async (inchi, similitude) => {
-    var response
+    const baseUrl = 'https://www.rosacheem.com:8443/rosapi/';
+    let response;
     if (similitude === 1) {
       try {
-        response = fetch('https://www.pcorp.games:8443/rosapi/search/exact', {
+        response = fetch(
+            baseUrl+'search/exact', {
           method: 'POST',
           body: JSON.stringify({
             inchi: inchi
@@ -18,7 +20,7 @@ export default class RosaService {
     } else {
       try {
         response = fetch(
-          'https://www.pcorp.games:8443/rosapi/search/similitude',
+          baseUrl+'search/similitude',
           {
             method: 'POST',
             body: JSON.stringify({
