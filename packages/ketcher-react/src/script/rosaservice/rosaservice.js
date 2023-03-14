@@ -1,6 +1,6 @@
 export default class RosaService {
   static searchByInchi = async (inchi, similitude) => {
-    const baseUrl = 'https://www.rosacheem.com:8443/rosapi/';
+    const baseUrl = 'https://www.rosachem.com:8443/rosapi/';
     let response;
     if (similitude === 1) {
       try {
