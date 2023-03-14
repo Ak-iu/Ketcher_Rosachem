@@ -14,109 +14,149 @@
  * limitations under the License.
  ***************************************************************************/
 
-import { Dialog } from '../../../../components'
+import {Dialog} from '../../../../components'
 import Logo from './logo.svg'
 import classes from './About.module.less'
-import { connect } from 'react-redux'
-import { Fragment } from 'react'
+import {connect} from 'react-redux'
+import {Fragment} from 'react'
 
 function AboutDialog(props) {
-  const indigoInfo = props.indigoVersion && props.indigoVersion.split('.r') // Indigo version and build info
+    const indigoInfo = props.indigoVersion && props.indigoVersion.split('.r') // Indigo version and build info
 
-  return (
-    <Dialog
-      className={`${classes.about} ${classes.dialog_body}`}
-      params={props}
-      buttons={[
-        <button onClick={props.onOk} className={classes.okButton} key="ok">
-          Ok
-        </button>
-      ]}
-    >
-      <div className={classes.headerContent}>
-        <a href={props.overviewLink} target="_blank" rel="noopener noreferrer">
-          <Logo />
-          <span className={classes.title}>Ketcher</span>
-        </a>
-      </div>
-      <div className={classes.body}>
-        <div className={classes.verionsInfo}>
-          <dl className={classes.ketcherVersionInfo}>
-            <dt>
-              <a
-                href={props.overviewLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Version {props.version}
-              </a>
-            </dt>
-            <dd>
-              Build at <time>{props.date}</time>
-            </dd>
-            <div className={classes.infoLinks}>
-              <dt>
-                <a
-                  href={props.feedbackLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Feedback
+    return (
+        <Dialog
+            className={`${classes.about} ${classes.dialog_body}`}
+            params={props}
+            buttons={[
+                <button onClick={props.onOk} className={classes.okButton} key="ok">
+                    Ok
+                </button>
+            ]}
+        >
+            <div className={classes.headerContent}>
+                <a href={props.overviewLink} target="_blank" rel="noopener noreferrer">
+                    <Logo/>
+                    <span className={classes.title}>Ketcher</span>
                 </a>
-              </dt>
-              <dt>
-                <a
-                  href={props.lifeScienciesLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Epam Life Sciencies
-                </a>
-              </dt>
             </div>
-            <br />
-            <div class={classes.indigoVersion}>
-              <a
-                href="http://lifescience.opensource.epam.com/indigo/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {' '}
-                Indigo Toolkit
-              </a>
-              {props.indigoMachine && <div>{props.indigoMachine}</div>}
+            <div className={classes.body}>
+                <div className={classes.verionsInfo}>
+                    <dl className={classes.ketcherVersionInfo}>
+                        <dt>
+                            <a
+                                href={props.overviewLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Version {props.version}
+                            </a>
+                        </dt>
+                        <dd>
+                            Build at <time>{props.date}</time>
+                        </dd>
+                        <div className={classes.infoLinks}>
+                            <dt>
+                                <a
+                                    href={props.feedbackLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Feedback
+                                </a>
+                            </dt>
+                            <dt>
+                                <a
+                                    href={props.lifeScienciesLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Epam Life Sciencies
+                                </a>
+                            </dt>
+                        </div>
+
+                        <br/>
+
+                        <div>
+                            Rosachem Version:
+                            <br/>
+                            <a href="https://github.com/Ak-iu/Ketcher_Rosachem">
+                                App
+                            </a>
+
+                            <br/>
+
+                            <a href="https://github.com/produsky/rosapi-base">
+                                Similiute API
+                            </a>
+
+                            <br/><br/>
+                            Team:
+                            <br/>
+                            <a href="https://www.linkedin.com/in/jean-daniel-de-ambrogi/">
+                                Jean-Daniel de Ambrogi
+                            </a>
+                            <br/>
+                            <a href="https://www.linkedin.com/in/maxime-joncherais-a41628202/">
+                                Maxime Joncherais
+                            </a>
+                            <br/>
+
+                            <a href="https://www.linkedin.com/in/evan-mulumba-547a1b1b5/">
+                                Evan Mulumba
+                            </a>
+                            <br/>
+                            <a href="https://www.linkedin.com/in/tristan-le-saux-841252193/">
+                                Tristan Le Saux
+                            </a>
+                            <br/>
+
+
+                        </div>
+
+
+                        <div class={classes.indigoVersion}>
+                            <a
+                                href="http://lifescience.opensource.epam.com/indigo/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {' '}
+                                Indigo Toolkit
+                            </a>
+                            {props.indigoMachine && <div>{props.indigoMachine}</div>}
+                        </div>
+                        <div>
+                            {props.indigoVersion ? (
+                                <Fragment>
+                                    <dd>Version {indigoInfo[0]}</dd>
+                                    {indigoInfo[1] && <dd>Build {indigoInfo[1]}</dd>}
+                                </Fragment>
+                            ) : (
+                                <p>Standalone</p>
+                            )}
+                        </div>
+                    </dl>
+                </div>
             </div>
-            <div>
-              {props.indigoVersion ? (
-                <Fragment>
-                  <dd>Version {indigoInfo[0]}</dd>
-                  {indigoInfo[1] && <dd>Build {indigoInfo[1]}</dd>}
-                </Fragment>
-              ) : (
-                <p>Standalone</p>
-              )}
-            </div>
-          </dl>
-        </div>
-      </div>
-    </Dialog>
-  )
+        </Dialog>
+    )
 }
 
 const mapStateToProps = (state) => ({
-  date: state.options.app.buildDate.replace('T', '; '),
-  indigoVersion: state.options.app.indigoVersion,
-  indigoMachine: state.options.app.indigoMachine,
-  feedbackLink: 'http://lifescience.opensource.epam.com/ketcher/#feedback',
-  overviewLink: 'https://lifescience.opensource.epam.com/ketcher/index.html',
-  lifeScienciesLink: 'http://lifescience.opensource.epam.com/',
-  version: state.options.app.version
+    date: state.options.app.buildDate.replace('T', '; '),
+    indigoVersion: state.options.app.indigoVersion,
+    indigoMachine: state.options.app.indigoMachine,
+    feedbackLink: 'http://lifescience.opensource.epam.com/ketcher/#feedback',
+    overviewLink: 'https://lifescience.opensource.epam.com/ketcher/index.html',
+    lifeScienciesLink: 'http://lifescience.opensource.epam.com/',
+    version: state.options.app.version
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onOk: (_result) => {
-    dispatch({ type: 'MODAL_CLOSE' })
-  }
+    onOk: (_result) => {
+        dispatch({type: 'MODAL_CLOSE'})
+    }
 })
 
 const About = connect(mapStateToProps, mapDispatchToProps)(AboutDialog)
